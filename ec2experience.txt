@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww18260\viewh14400\viewkind0
+\pard\tx0\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li323\fi-324\pardirnatural
+
+\f0\fs24 \cf0 1. 
+\b FIVE WORKERS:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li214\fi-9\pardirnatural
+\cf0 \
+
+\b0 \ul 1. freedom, 0: combiner off\ulnone \
+Total Time Taken: 13 min 26 seconds\
+Number of Mappers (first job): 80\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 5,112,865,375 bytes\
+\
+\ul \ulc0 2. freedom, 0: combiner on\ulnone \
+Total Time Taken: 5 min 17 seconds\
+Number of Mappers (first job): 80\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 5,112,865,529 bytes\
+\
+\ul 3. capital 0: combiner on\ulnone \
+Total Time Taken: 14 min 49 seconds\
+Number of Mappers (first job): 316\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 19,139,813,829\
+\
+
+\b NINE WORKERS:\
+\
+
+\b0 \ul 1. capital, 0: combiner on\ulnone \
+Total Time Taken: 8 min 50 seconds\
+Number of Mappers (first job): 316\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 19,139,829,630\
+\
+\ul 2. landmark, 1: combiner on\ulnone \
+Total Time Taken: 9 min 1 second\
+Number of Mappers (first job): 316\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 19,139,826,208\
+\
+\ul 3. monument, 2: combiner on\ulnone \
+Total Time Taken: 8 min 38 sec\
+Number of Mappers (first job): 316\
+Number of Reducers (first job): 32\
+Number of Mappers (second job): 32\
+Number of Reducers (second job): 1\
+Size of Input: 19,139,827,371\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-192\pardirnatural
+\cf0 2. (X - Y)/Y \
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-20\pardirnatural
+\cf0 X = 13*60 + 26 = 806\
+Y = 5*60 + 17 = 317\
+(806-317)/317 = 1.54\
+154% faster with combiner turned on\
+\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-192\pardirnatural
+\cf0 3. 19,139,813,829 bytes to GB = 17.82534\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-20\pardirnatural
+\cf0 Total seconds taken = 14*60 + 49 = 889\
+GB/sec = .020\
+19,139,829,630, 19,139,826,208, and 19,139,827,371 bytes to GB = 17.82535\
+Total seconds taken = 8*60 + 50 = 530, 9*60 + 1 = 541, 8*60 + 38 = 518\
+GB/sec = .0336, .0329, .0344\
+Average of GB/sec = (.0336 + .0329 + .0344)/3 = .03\
+About .02 GB/sec with 5 workers and around .03 GB/sec with 9 workers\
+\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-192\pardirnatural
+\cf0 4. (X-Y)/Y\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-20\pardirnatural
+\cf0 X = 14*60 + 49 = 889\
+Y = 8*60 + 50 = 530\
+(889-530)/530 = .677\
+X = 9\
+Y = 5\
+(9-5)/5 = .80\
+68% faster, the maximum ideal speedup time however would be 80% faster. I think Hadoop does a fantastic job of parallelizing code because the numbers seem fairly close. The discrepancy could be due to the fact that code can never be 100% parallelized since some things must be done in serialization (Amdahl's Law).\
+\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-192\pardirnatural
+\cf0 5. (Five Workers) 19,139,813,829 bytes to GB = 17.82534\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-20\pardirnatural
+\cf0 Total money spent = .58*5 = 2.90\
+Total money/Total GB = .16\
+(Nine Workers) 19,139,826,208 bytes to GB = 17.82535\
+Total money spent = .58*9 = 5.22\
+Total money/Total GB = .29\
+It was about 16 cents to process a GB worth of data for five workers and 29 cents to process a GB worth of data for nine workers since a single run of the 2006 data, regardless of how long it takes, rounds up to an hour charge.\
+\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li191\fi-192\pardirnatural
+\cf0 6. .58 * 5 = 2.90\
+\pard\tx175\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li285\fi-114\pardirnatural
+\cf0 .58 * 9 = 5.22\
+5.22 + 2.90 = 8.12\
+$8.12 since we started a large cluster twice, once with 5 workers and once with 9 and we are charged for a full hour each time.}
